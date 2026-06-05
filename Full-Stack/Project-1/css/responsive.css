@@ -1,0 +1,434 @@
+/* =============================================
+   RESPONSIVE.CSS — Mobile-First Media Queries
+   Breakpoints per spec:
+     Tablet:  768px (min-width)
+     Desktop: 1024px (min-width)
+   ============================================= */
+
+/* =============================================
+   BASE = MOBILE (default, no query needed)
+   ============================================= */
+
+/* Mobile nav */
+.nav-toggle {
+  display: flex;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--surface-bg);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-20) var(--space-8);
+  gap: var(--space-2);
+  box-shadow: var(--shadow-xl);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  z-index: var(--z-overlay);
+}
+
+.nav-menu.open {
+  transform: translateX(0);
+}
+
+/* Mobile nav overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: calc(var(--z-overlay) - 1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.nav-overlay.open {
+  display: block;
+}
+
+.nav-menu .nav-link {
+  font-size: var(--text-xl);
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+}
+
+.nav-menu .nav-link--cta {
+  margin-top: var(--space-4);
+  text-align: center;
+  border-radius: var(--radius-lg);
+}
+
+/* Hero mobile */
+.hero__inner {
+  padding-block: var(--space-16);
+}
+
+.hero__heading {
+  max-width: none;
+}
+
+/* About mobile */
+.about__text .section-heading,
+.contact__text .section-heading {
+  text-align: left;
+}
+
+/* Work grid mobile — single column */
+.work__grid {
+  grid-template-columns: 1fr;
+}
+
+.work-card--tall,
+.work-card--wide {
+  /* Reset on mobile */
+}
+
+/* Blog mobile */
+.blog__grid {
+  grid-template-columns: 1fr;
+}
+
+/* Footer mobile */
+.footer__grid {
+  grid-template-columns: 1fr;
+}
+
+/* Back to top smaller on mobile */
+.back-to-top {
+  bottom: var(--space-5);
+  right: var(--space-5);
+}
+
+/* =============================================
+   TABLET — 768px
+   ============================================= */
+
+@media screen and (min-width: 768px) {
+
+  /* Nav becomes horizontal */
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    transform: none;
+    padding: 0;
+    gap: var(--space-1);
+  }
+
+  .nav-menu .nav-link {
+    font-size: var(--text-sm);
+    padding: var(--space-2) var(--space-3);
+    width: auto;
+  }
+
+  .nav-menu .nav-link--cta {
+    margin-top: 0;
+    text-align: center;
+    border-radius: var(--radius-full);
+  }
+
+  /* Hero */
+  .hero__heading {
+    max-width: 14ch;
+  }
+
+  .hero__stats {
+    gap: var(--space-16);
+  }
+
+  /* About — 2-col */
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  /* Blog — 2-col */
+  .blog__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-card--featured {
+    grid-column: 1 / -1;
+  }
+
+  /* Work — 2 col */
+  .work__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contact — 2-col */
+  .contact__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer — 2 col */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Roadmap — 2-col on tablet */
+  .roadmap__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =============================================
+   DESKTOP — 1024px
+   ============================================= */
+
+@media screen and (min-width: 1024px) {
+
+  /* Hero — larger layout */
+  .hero__inner {
+    max-width: 60%;
+  }
+
+  .hero__shape--1 {
+    width: 700px;
+    height: 700px;
+    top: -250px;
+    right: -100px;
+  }
+
+  /* About */
+  .about__grid {
+    grid-template-columns: 5fr 4fr;
+    gap: var(--space-20);
+  }
+
+  /* Blog — 3 col */
+  .blog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .blog-card--featured {
+    grid-column: auto;
+  }
+
+  /* Work grid — masonry-like with named areas */
+  .work__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .work-card--tall {
+    grid-row: span 2;
+  }
+
+  .work-card--wide {
+    grid-column: span 2;
+  }
+
+  /* Contact */
+  .contact__inner {
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-20);
+  }
+
+  /* Footer — 4 col */
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--space-8);
+  }
+
+  /* Roadmap — 3 col */
+  .roadmap__steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =============================================
+   LARGE DESKTOP — 1280px
+   ============================================= */
+
+@media screen and (min-width: 1280px) {
+
+  .hero__inner {
+    max-width: 55%;
+  }
+
+  /* Roadmap — 6 col (all in one row) */
+  .roadmap__steps {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .roadmap__step {
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+
+@media print {
+  .site-header,
+  .nav-toggle,
+  .marquee-strip,
+  .back-to-top,
+  .hero__visual,
+  .hero__shape,
+  .hero__grid-lines,
+  .hero__actions,
+  .work__filters,
+  .contact-form,
+  .footer__nav {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  .hero {
+    min-height: auto;
+    background: none;
+    padding: 2rem 0;
+  }
+
+  .section,
+  .section--tinted,
+  .section--dark {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 1.5rem 0;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  .work-card,
+  .service-card,
+  .blog-card {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+  }
+}
+
+/* =============================================
+   HIGH CONTRAST MODE
+   ============================================= */
+
+@media (forced-colors: active) {
+  .btn--primary,
+  .nav-link--cta,
+  .filter-btn--active {
+    forced-color-adjust: none;
+    background: ButtonText;
+    color: ButtonFace;
+    border-color: ButtonText;
+  }
+
+  .form-input:focus {
+    outline: 3px solid Highlight;
+  }
+
+  .logo-mark {
+    forced-color-adjust: none;
+    background: ButtonText;
+    color: ButtonFace;
+  }
+}
+
+/* =============================================
+   DARK MODE (auto, based on system)
+   ============================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-bg:     #1e1c19;
+    --surface-tint:   #252320;
+    --text-primary:   #f0ede8;
+    --text-secondary: #a8a5a0;
+    --text-muted:     #706d68;
+    --clr-grey-mid:   #3a3835;
+    --clr-mocha-pale: rgba(165,133,110,0.12);
+    --clr-blue-pale:  rgba(160,212,224,0.08);
+    --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md:  0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg:  0 10px 40px rgba(0,0,0,0.45);
+    --shadow-xl:  0 20px 60px rgba(0,0,0,0.55);
+  }
+
+  .site-header {
+    background-color: rgba(30, 28, 25, 0.92);
+    border-color: #3a3835;
+  }
+
+  .hero {
+    background: linear-gradient(
+      135deg,
+      var(--surface-bg) 0%,
+      rgba(165,133,110,0.08) 45%,
+      rgba(160,212,224,0.06) 100%
+    );
+  }
+
+  .service-card,
+  .work-card,
+  .blog-card,
+  .contact-form {
+    background: var(--surface-tint);
+    border-color: #3a3835;
+  }
+
+  .blog-card--featured {
+    background: linear-gradient(135deg, rgba(165,133,110,0.1) 0%, var(--surface-tint) 100%);
+  }
+
+  .service-card--featured {
+    background: linear-gradient(135deg, rgba(165,133,110,0.08) 0%, var(--surface-tint) 60%);
+  }
+
+  .form-input {
+    background: var(--surface-bg);
+    border-color: #3a3835;
+    color: var(--text-primary);
+  }
+
+  .form-input:focus {
+    background: #2a2825;
+    border-color: var(--clr-mocha);
+  }
+
+  .mock-browser {
+    background: #2a2825;
+  }
+
+  .mock-input {
+    background: var(--surface-bg);
+  }
+
+  .mock-card-mini {
+    background: #2a2825;
+  }
+
+  .filter-btn {
+    border-color: #3a3835;
+  }
+
+  .service-card__desc code {
+    background: rgba(165,133,110,0.15);
+  }
+
+  .blueprint-card {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  }
+}

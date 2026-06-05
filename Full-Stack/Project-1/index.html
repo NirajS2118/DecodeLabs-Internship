@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Digital Craftsmanship — A modern web application built with pure HTML, CSS, and JavaScript. Responsive, accessible, and beautifully crafted." />
+  <meta name="keywords" content="responsive design, web development, digital craftsmanship, DecodeLabs" />
+  <meta name="author" content="DecodeLabs Intern — Full Stack Project 1" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Digital Craftsmanship | DecodeLabs" />
+  <meta property="og:description" content="A responsive frontend interface built with pure HTML, CSS, and JavaScript." />
+  <meta property="og:type" content="website" />
+
+  <title>Digital Craftsmanship | DecodeLabs</title>
+
+  <!-- Google Fonts: Montserrat (headlines) + Open Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+  <!-- ========== SKIP LINK (Accessibility) ========== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========== HEADER & NAV ========== -->
+  <header class="site-header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Primary navigation">
+      <a href="#" class="nav-logo" aria-label="Digital Craftsmanship — Home">
+        <span class="logo-mark" aria-hidden="true">DC</span>
+        <span class="logo-text">Digital<strong>Craft</strong></span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#blog" class="nav-link">Insights</a></li>
+        <li><a href="#contact" class="nav-link nav-link--cta">Start a Project</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner container">
+        <div class="hero__badge" aria-label="2025 Design Systems">2025 Design Systems</div>
+        <h1 class="hero__heading" id="hero-heading">
+          Build the<br />
+          <em class="hero__accent">Future</em>
+        </h1>
+        <p class="hero__subtext">
+          A strategic execution framework for crafting responsive interfaces
+          that honor the mobile-first paradigm — built with pure HTML, CSS, and JavaScript.
+        </p>
+        <div class="hero__actions">
+          <a href="#work" class="btn btn--primary">View Our Work</a>
+          <a href="#about" class="btn btn--ghost">Learn More</a>
+        </div>
+        <div class="hero__stats" role="list" aria-label="Key statistics">
+          <div class="stat" role="listitem">
+            <span class="stat__number" data-target="98">0</span><span class="stat__unit">%</span>
+            <span class="stat__label">Accessibility Score</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat__number" data-target="100">0</span><span class="stat__unit">ms</span>
+            <span class="stat__label">Time to Interactive</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat__number" data-target="3">0</span><span class="stat__unit">+</span>
+            <span class="stat__label">Breakpoints</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+        <div class="hero__shape hero__shape--3"></div>
+        <div class="hero__grid-lines"></div>
+      </div>
+    </section>
+
+    <!-- ===== MARQUEE STRIP ===== -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <span>HTML5 Semantics</span><span class="dot">·</span>
+        <span>CSS Grid</span><span class="dot">·</span>
+        <span>Flexbox</span><span class="dot">·</span>
+        <span>Mobile First</span><span class="dot">·</span>
+        <span>WCAG 2.1</span><span class="dot">·</span>
+        <span>Container Queries</span><span class="dot">·</span>
+        <span>Fluid Typography</span><span class="dot">·</span>
+        <span>CSS clamp()</span><span class="dot">·</span>
+        <span>Responsive Design</span><span class="dot">·</span>
+        <span>HTML5 Semantics</span><span class="dot">·</span>
+        <span>CSS Grid</span><span class="dot">·</span>
+        <span>Flexbox</span><span class="dot">·</span>
+        <span>Mobile First</span><span class="dot">·</span>
+        <span>WCAG 2.1</span><span class="dot">·</span>
+        <span>Container Queries</span><span class="dot">·</span>
+        <span>Fluid Typography</span><span class="dot">·</span>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__text">
+            <span class="section-label">The Vision</span>
+            <h2 class="section-heading" id="about-heading">
+              Architecting for<br />the Mobile Web
+            </h2>
+            <p class="about__lead">
+              The web is a dynamic, inclusive information system. We build
+              digital experiences that honor the mobile-first paradigm —
+              reaching every user, on every device, with absolute clarity.
+            </p>
+            <ul class="about__pillars" role="list">
+              <li class="pillar">
+                <div class="pillar__icon" aria-hidden="true">⬡</div>
+                <div>
+                  <strong>Semantic Integrity</strong>
+                  <p>Code for AI and accessibility. Every element chosen with purpose.</p>
+                </div>
+              </li>
+              <li class="pillar">
+                <div class="pillar__icon" aria-hidden="true">◈</div>
+                <div>
+                  <strong>2025 UI/UX Compliance</strong>
+                  <p>Warm, grounded aesthetics. Shift from sterile tech to human warmth.</p>
+                </div>
+              </li>
+              <li class="pillar">
+                <div class="pillar__icon" aria-hidden="true">◎</div>
+                <div>
+                  <strong>Universal Access</strong>
+                  <p>Strict WCAG adherence. Your interface should work for everyone.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="about__visual" aria-hidden="true">
+            <div class="blueprint-card">
+              <div class="blueprint-card__header">
+                <span>1920px</span>
+                <div class="blueprint-card__dots">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="blueprint-card__layout">
+                <div class="bp-nav">Nav Container · 60px</div>
+                <div class="bp-body">
+                  <div class="bp-sidebar">Side Panel</div>
+                  <div class="bp-main">
+                    <div class="bp-hero">Hero Section · 360px</div>
+                    <div class="bp-content">Main Content Grid</div>
+                  </div>
+                </div>
+                <div class="bp-footer">Footer Container</div>
+              </div>
+              <div class="blueprint-card__footer">
+                <span>1080px content width</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services section section--tinted" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">The Toolkit</span>
+          <h2 class="section-heading" id="services-heading">Your Raw Materials</h2>
+          <p class="section-sub">No frameworks. Master the fundamentals first.</p>
+        </div>
+        <div class="services__grid" role="list">
+          <article class="service-card" role="listitem">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M14 20l-6 4 6 4M34 20l6 4-6 4M22 32l4-16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">HTML5: The Infrastructure</h3>
+            <p class="service-card__desc">
+              Semantic landmarks and structural meaning. Not just divs, but the
+              right element for the right job — <code>&lt;header&gt;</code>,
+              <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>,
+              <code>&lt;footer&gt;</code>.
+            </p>
+            <ul class="service-card__tags" aria-label="HTML5 features">
+              <li>Landmark Elements</li>
+              <li>ARIA Roles</li>
+              <li>Semantic Structure</li>
+            </ul>
+          </article>
+
+          <article class="service-card service-card--featured" role="listitem">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M12 24h24M24 12v24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">CSS3: The Skin</h3>
+            <p class="service-card__desc">
+              Responsive styling using Grid, Flexbox, and Container Queries.
+              CSS custom properties for theming, <code>clamp()</code> for fluid
+              typography, and mobile-first media queries.
+            </p>
+            <ul class="service-card__tags" aria-label="CSS3 features">
+              <li>CSS Grid</li>
+              <li>Flexbox</li>
+              <li>Container Queries</li>
+              <li>Custom Properties</li>
+            </ul>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M8 16l8 8-8 8M20 32h20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="26" y="10" width="14" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">JavaScript: The Logic</h3>
+            <p class="service-card__desc">
+              Basic state management and interactive functionality. DOM
+              manipulation, event handling, IntersectionObserver for scroll
+              animations, and accessible toggles.
+            </p>
+            <ul class="service-card__tags" aria-label="JavaScript features">
+              <li>DOM API</li>
+              <li>Event Handling</li>
+              <li>State Management</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WORK / PORTFOLIO SECTION ===== -->
+    <section class="work section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">The Portfolio</span>
+          <h2 class="section-heading" id="work-heading">Featured Work</h2>
+          <p class="section-sub">Responsive interfaces crafted with intention.</p>
+        </div>
+
+        <!-- Filter controls -->
+        <div class="work__filters" role="group" aria-label="Filter portfolio items">
+          <button class="filter-btn filter-btn--active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="layout" aria-pressed="false">Layout</button>
+          <button class="filter-btn" data-filter="ui" aria-pressed="false">UI Components</button>
+          <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile</button>
+        </div>
+
+        <div class="work__grid" id="work-grid" role="list" aria-label="Portfolio projects">
+          <article class="work-card" data-category="layout" role="listitem">
+            <div class="work-card__thumb" aria-hidden="true">
+              <div class="work-card__visual work-card__visual--1">
+                <div class="mock-browser">
+                  <div class="mock-browser__bar"><span></span><span></span><span></span></div>
+                  <div class="mock-browser__body">
+                    <div class="mock-nav"></div>
+                    <div class="mock-hero"></div>
+                    <div class="mock-cards">
+                      <div></div><div></div><div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work-card__info">
+              <span class="work-card__cat">Layout</span>
+              <h3 class="work-card__title">Dashboard Layout System</h3>
+              <p class="work-card__desc">CSS Grid macro layout with responsive sidebar and content zones.</p>
+              <a href="#" class="work-card__link" aria-label="View Dashboard Layout System project">View Project →</a>
+            </div>
+          </article>
+
+          <article class="work-card work-card--tall" data-category="ui" role="listitem">
+            <div class="work-card__thumb" aria-hidden="true">
+              <div class="work-card__visual work-card__visual--2">
+                <div class="mock-components">
+                  <div class="mock-btn mock-btn--primary">Primary Button</div>
+                  <div class="mock-btn mock-btn--ghost">Ghost Button</div>
+                  <div class="mock-input"><span>Search...</span></div>
+                  <div class="mock-card-mini">
+                    <div class="mock-card-mini__img"></div>
+                    <div class="mock-card-mini__lines">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work-card__info">
+              <span class="work-card__cat">UI Components</span>
+              <h3 class="work-card__title">Component Design System</h3>
+              <p class="work-card__desc">Reusable UI components with consistent theming and accessibility.</p>
+              <a href="#" class="work-card__link" aria-label="View Component Design System project">View Project →</a>
+            </div>
+          </article>
+
+          <article class="work-card" data-category="mobile" role="listitem">
+            <div class="work-card__thumb" aria-hidden="true">
+              <div class="work-card__visual work-card__visual--3">
+                <div class="mock-phone">
+                  <div class="mock-phone__screen">
+                    <div class="mock-phone__nav"></div>
+                    <div class="mock-phone__hero"></div>
+                    <div class="mock-phone__list">
+                      <div></div><div></div><div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work-card__info">
+              <span class="work-card__cat">Mobile</span>
+              <h3 class="work-card__title">Mobile-First Interface</h3>
+              <p class="work-card__desc">Designed bottom-up from 320px, expanding gracefully to 1920px.</p>
+              <a href="#" class="work-card__link" aria-label="View Mobile-First Interface project">View Project →</a>
+            </div>
+          </article>
+
+          <article class="work-card work-card--wide" data-category="layout" role="listitem">
+            <div class="work-card__thumb" aria-hidden="true">
+              <div class="work-card__visual work-card__visual--4">
+                <div class="mock-grid-demo">
+                  <div class="mg-a"></div>
+                  <div class="mg-b"></div>
+                  <div class="mg-c"></div>
+                  <div class="mg-d"></div>
+                  <div class="mg-e"></div>
+                </div>
+              </div>
+            </div>
+            <div class="work-card__info">
+              <span class="work-card__cat">Layout</span>
+              <h3 class="work-card__title">Editorial Grid System</h3>
+              <p class="work-card__desc">Magazine-style asymmetric grid with CSS Grid named areas.</p>
+              <a href="#" class="work-card__link" aria-label="View Editorial Grid System project">View Project →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXECUTION ROADMAP ===== -->
+    <section class="roadmap section section--dark" id="process" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <div class="section-header section-header--light">
+          <span class="section-label">The Process</span>
+          <h2 class="section-heading" id="roadmap-heading">Execution Roadmap</h2>
+          <p class="section-sub">Six stages from discovery to deployment.</p>
+        </div>
+        <ol class="roadmap__steps" role="list" aria-label="Development process steps">
+          <li class="roadmap__step">
+            <div class="roadmap__step-number" aria-hidden="true">01</div>
+            <div class="roadmap__step-content">
+              <h3>Discovery</h3>
+              <p>Define "How Might We" questions. Use Empathy Maps to uncover user pain points.</p>
+            </div>
+          </li>
+          <li class="roadmap__step">
+            <div class="roadmap__step-number" aria-hidden="true">02</div>
+            <div class="roadmap__step-content">
+              <h3>Wireframe</h3>
+              <p>Grayscale, mobile-first. Focus on hierarchy and flow. If it doesn't work in grayscale, color won't fix it.</p>
+            </div>
+          </li>
+          <li class="roadmap__step">
+            <div class="roadmap__step-number" aria-hidden="true">03</div>
+            <div class="roadmap__step-content">
+              <h3>Semantics</h3>
+              <p>HTML Landmark elements. Semantic tags provide a Table of Contents for screen readers and AI.</p>
+            </div>
+          </li>
+          <li class="roadmap__step">
+            <div class="roadmap__step-number" aria-hidden="true">04</div>
+            <div class="roadmap__step-content">
+              <h3>Style</h3>
+              <p>CSS Grid/Flex &amp; 2025 Palette — Mocha Mousse, Ethereal Blue, Moonlit Grey.</p>
+            </div>
+          </li>
+          <li class="roadmap__step">
+            <div class="roadmap__step-number" aria-hidden="true">05</div>
+            <div class="roadmap__step-content">
+              <h3>Logic</h3>
+              <p>State &amp; Interactivity. DOM manipulation, event delegation, accessible components.</p>
+            </div>
+          </li>
+          <li class="roadmap__step">
+            <div class="roadmap__step-number" aria-hidden="true">06</div>
+            <div class="roadmap__step-content">
+              <h3>Audit</h3>
+              <p>LCP/CLS &amp; Accessibility. Lighthouse scores, WCAG 2.1 AA compliance, performance audit.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== BLOG / INSIGHTS SECTION ===== -->
+    <section class="blog section" id="blog" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">The Insights</span>
+          <h2 class="section-heading" id="blog-heading">Frontend Fundamentals</h2>
+        </div>
+        <div class="blog__grid" role="list">
+          <article class="blog-card" role="listitem">
+            <div class="blog-card__meta">
+              <time datetime="2025-06-01">Jun 1, 2025</time>
+              <span class="blog-card__tag">CSS</span>
+            </div>
+            <h3 class="blog-card__title">
+              <a href="#">Why CSS Grid Changed Everything About Layout</a>
+            </h3>
+            <p class="blog-card__excerpt">
+              Before Grid, we hacked floats, fought Bootstrap columns, and prayed. 
+              Here's how the 2D layout system finally gave us real control.
+            </p>
+            <a href="#" class="blog-card__read" aria-label="Read: Why CSS Grid Changed Everything About Layout">Read More →</a>
+          </article>
+          <article class="blog-card blog-card--featured" role="listitem">
+            <div class="blog-card__meta">
+              <time datetime="2025-05-20">May 20, 2025</time>
+              <span class="blog-card__tag">Accessibility</span>
+            </div>
+            <h3 class="blog-card__title">
+              <a href="#">Semantic HTML: The Foundation You Can't Skip</a>
+            </h3>
+            <p class="blog-card__excerpt">
+              Accessibility isn't a bolt-on feature — it's baked into the spec. 
+              Semantic landmarks aren't just for screen readers; they help search 
+              engines and AI crawlers understand your content hierarchy.
+            </p>
+            <a href="#" class="blog-card__read" aria-label="Read: Semantic HTML: The Foundation You Can't Skip">Read More →</a>
+          </article>
+          <article class="blog-card" role="listitem">
+            <div class="blog-card__meta">
+              <time datetime="2025-05-10">May 10, 2025</time>
+              <span class="blog-card__tag">Design</span>
+            </div>
+            <h3 class="blog-card__title">
+              <a href="#">The 2025 Aesthetic: Warmth, Grounding &amp; Restraint</a>
+            </h3>
+            <p class="blog-card__excerpt">
+              Pantone's Mocha Mousse and the shift toward earthy, warm tones.
+              How to translate trend into interface without being trendy.
+            </p>
+            <a href="#" class="blog-card__read" aria-label="Read: The 2025 Aesthetic: Warmth, Grounding & Restraint">Read More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact section section--tinted" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact__inner">
+          <div class="contact__text">
+            <span class="section-label">The Next Step</span>
+            <h2 class="section-heading" id="contact-heading">
+              Start a Project
+            </h2>
+            <p>
+              Ready to build something extraordinary? Drop your details and let's 
+              architect a digital experience together.
+            </p>
+            <ul class="contact__info" role="list" aria-label="Contact details">
+              <li>
+                <span class="contact__info-icon" aria-hidden="true">📞</span>
+                <a href="tel:+918933006408">+91 89330 06408</a>
+              </li>
+              <li>
+                <span class="contact__info-icon" aria-hidden="true">✉</span>
+                <a href="mailto:decodelabs.tech@gmail.com">decodelabs.tech@gmail.com</a>
+              </li>
+              <li>
+                <span class="contact__info-icon" aria-hidden="true">🌐</span>
+                <a href="https://www.decodelabs.tech" target="_blank" rel="noopener noreferrer">www.decodelabs.tech</a>
+              </li>
+              <li>
+                <span class="contact__info-icon" aria-hidden="true">📍</span>
+                <span>Greater Lucknow, India</span>
+              </li>
+            </ul>
+          </div>
+          <div class="contact__form-wrap">
+            <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name <span aria-hidden="true" class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="e.g. Arjun Sharma"
+                  required
+                  autocomplete="name"
+                  aria-required="true"
+                  aria-describedby="name-error"
+                />
+                <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address <span aria-hidden="true" class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                  aria-describedby="email-error"
+                />
+                <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="project-type" class="form-label">Project Type</label>
+                <select id="project-type" name="project-type" class="form-input form-select" autocomplete="off">
+                  <option value="">Select a project type…</option>
+                  <option value="website">Website / Landing Page</option>
+                  <option value="webapp">Web Application</option>
+                  <option value="responsive">Responsive Redesign</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message <span aria-hidden="true" class="required">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-input form-textarea"
+                  placeholder="Describe your project goals…"
+                  required
+                  rows="4"
+                  aria-required="true"
+                  aria-describedby="message-error"
+                ></textarea>
+                <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" aria-describedby="form-status">
+                Send Message
+              </button>
+              <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="nav-logo footer__logo" aria-label="Digital Craftsmanship — Home">
+            <span class="logo-mark" aria-hidden="true">DC</span>
+            <span class="logo-text">Digital<strong>Craft</strong></span>
+          </a>
+          <p class="footer__tagline">
+            Building the digital entry point of your application with absolute clarity.
+          </p>
+          <p class="footer__credit">Powered by <strong>DecodeLabs</strong> · Batch 2026</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h3 class="footer__nav-heading">Navigation</h3>
+          <ul role="list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#blog">Insights</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__nav" aria-label="Tech stack navigation">
+          <h3 class="footer__nav-heading">Built With</h3>
+          <ul role="list">
+            <li><a href="#">HTML5 Semantics</a></li>
+            <li><a href="#">CSS Grid &amp; Flexbox</a></li>
+            <li><a href="#">Vanilla JavaScript</a></li>
+            <li><a href="#">WCAG 2.1 AA</a></li>
+            <li><a href="#">Mobile-First</a></li>
+          </ul>
+        </nav>
+        <div class="footer__colophon">
+          <h3 class="footer__nav-heading">The Mandate</h3>
+          <blockquote class="footer__quote">
+            "No Frameworks.<br />Master the fundamentals first."
+          </blockquote>
+          <p class="footer__stack-note">Full Stack Development · Project 1<br />Industrial Training Kit</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>
+          <span>© <span id="footer-year"></span> Digital Craftsmanship by DecodeLabs.</span>
+          <span>Built with pure HTML, CSS &amp; JavaScript — no frameworks.</span>
+        </p>
+        <p class="footer__wcag">
+          <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 AA Compliant
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

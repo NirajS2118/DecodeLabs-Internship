@@ -1,0 +1,98 @@
+/* =============================================
+   VARIABLES.CSS — Design Tokens
+   2025 Palette: Mocha Mousse, Ethereal Blue,
+   Moonlit Grey (as specified in the project)
+   ============================================= */
+
+:root {
+  /* ---- Colour Palette (from Project Spec) ---- */
+  --clr-mocha:       #A5856E;   /* Stability */
+  --clr-mocha-dark:  #8a6d57;
+  --clr-mocha-light: #c4a891;
+  --clr-mocha-pale:  #f0e8e0;
+
+  --clr-blue:        #A0D4E0;   /* Trust */
+  --clr-blue-dark:   #7bbccc;
+  --clr-blue-light:  #c5e8f0;
+  --clr-blue-pale:   #eaf6fa;
+
+  --clr-grey:        #F2F0EA;   /* Refinement */
+  --clr-grey-mid:    #d8d5cc;
+  --clr-grey-dark:   #6b6860;
+  --clr-grey-deeper: #3a3835;
+
+  /* ---- Surface ---- */
+  --surface-bg:      #FDFCF8;
+  --surface-tint:    #F5F2EC;
+  --surface-dark:    #2c2a27;
+  --surface-darker:  #1e1c1a;
+
+  /* ---- Text ---- */
+  --text-primary:    #2c2a27;
+  --text-secondary:  #6b6860;
+  --text-muted:      #9b9892;
+  --text-inverse:    #fdfcf8;
+
+  /* ---- Typography (from spec) ---- */
+  --font-heading:    'Montserrat', sans-serif;
+  --font-body:       'Open Sans', sans-serif;
+
+  /* ---- Font Sizes (fluid with clamp) ---- */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.83rem + 0.22vw, 1rem);
+  --text-base: clamp(1rem,     0.96rem + 0.2vw,  1.125rem);
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.37vw, 1.375rem);
+  --text-xl:   clamp(1.25rem,  1.1rem  + 0.75vw, 1.75rem);
+  --text-2xl:  clamp(1.5rem,   1.25rem + 1.25vw, 2.25rem);
+  --text-3xl:  clamp(2rem,     1.5rem  + 2.5vw,  3.5rem);
+  --text-4xl:  clamp(2.5rem,   1.75rem + 3.75vw, 5rem);
+
+  /* ---- Spacing ---- */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+
+  /* ---- Section Padding (fluid) ---- */
+  --section-pad: clamp(4rem, 8vw, 8rem);
+
+  /* ---- Container ---- */
+  --container-max:  1200px;
+  --container-pad:  clamp(1rem, 5vw, 2.5rem);
+
+  /* ---- Border Radius ---- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-full: 9999px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm:   0 1px 3px rgba(44,42,39,0.08), 0 1px 2px rgba(44,42,39,0.06);
+  --shadow-md:   0 4px 16px rgba(44,42,39,0.1),  0 2px 6px rgba(44,42,39,0.06);
+  --shadow-lg:   0 10px 40px rgba(44,42,39,0.12), 0 4px 12px rgba(44,42,39,0.08);
+  --shadow-xl:   0 20px 60px rgba(44,42,39,0.15), 0 8px 20px rgba(44,42,39,0.1);
+
+  /* ---- Transitions ---- */
+  --ease-out:     cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in-out:  cubic-bezier(0.4, 0.0, 0.2, 1);
+  --transition-fast:   150ms var(--ease-out);
+  --transition-base:   250ms var(--ease-out);
+  --transition-slow:   400ms var(--ease-out);
+
+  /* ---- Z-index Scale ---- */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-nav:     100;
+  --z-overlay: 200;
+  --z-modal:   300;
+  --z-top:     400;
+}

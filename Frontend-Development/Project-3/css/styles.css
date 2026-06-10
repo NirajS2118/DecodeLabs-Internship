@@ -1,0 +1,245 @@
+/* ===========================
+   CSS Variables & Reset
+=========================== */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --muted: #555e77;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --outline-border: #c7ccdb;
+  --progress-track: #e2e5f0;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg: #0f1117;
+  --surface: #1c1f2e;
+  --text: #e8eaf6;
+  --muted: #9196ae;
+  --accent: #7c73f5;
+  --accent-hover: #6c63f0;
+  --outline-border: #2e3250;
+  --progress-track: #2a2f47;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn.primary {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn.secondary {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--outline-border);
+}
+
+.btn.secondary:hover {
+  background-color: var(--bg);
+}
+
+.btn.outline {
+  background-color: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn.outline:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+.hero {
+  background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+  color: #fff;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+/* ===========================
+   Shared Section Styles
+=========================== */
+.section {
+  max-width: 680px;
+  margin: 40px auto;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.section h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section > p {
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   Progress Section
+=========================== */
+.progress-label {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+#progress-value {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.progress-bar-wrap {
+  width: 100%;
+  height: 14px;
+  background: var(--progress-track);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+/* ===========================
+   Fact Box
+=========================== */
+.fact-box {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: var(--bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.fact-box.hidden {
+  display: none;
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+  text-align: center;
+  padding: 28px 16px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 720px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .section {
+    margin: 24px 16px;
+    padding: 24px 20px;
+  }
+
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .btn-row .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 56px 18px;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+}

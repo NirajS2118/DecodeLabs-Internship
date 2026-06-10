@@ -42,7 +42,7 @@ Frontend-Development/
     │   └── styles.css
     ├── js/
     │   └── script.js
-    └── assets/
+    
 ```
 
 ---

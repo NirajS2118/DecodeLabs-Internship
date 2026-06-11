@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-mark">FB</span>
+          <span class="logo-text">FeedbackBoard</span>
+        </div>
+        <p class="tagline">Share your thoughts — we're listening.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="form-section">
+      <div class="section-label">Submit Feedback</div>
+      <h2 class="section-title">What's on your mind?</h2>
+
+      <form id="feedbackForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="John Doe" autocomplete="off" />
+            <span class="field-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" autocomplete="off" />
+            <span class="field-error" id="emailError"></span>
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us what you think..."></textarea>
+          <span class="field-error" id="messageError"></span>
+        </div>
+        <div class="form-footer">
+          <div id="formStatus" class="form-status" aria-live="polite"></div>
+          <button type="submit" id="submitBtn">
+            <span class="btn-text">Send Feedback</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <div class="list-header">
+        <div>
+          <div class="section-label">Community</div>
+          <h2 class="section-title">All Feedback</h2>
+        </div>
+        <button id="loadBtn" class="load-btn">Load Feedback</button>
+      </div>
+
+      <div id="feedbackList" class="feedback-list">
+        <div class="empty-state">
+          <p>Click <strong>Load Feedback</strong> to see what others have shared.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Feedback Collection API &mdash; Node.js + Express.js Project</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

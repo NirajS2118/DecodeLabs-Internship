@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Records Manager</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1e40af;
+      color: white;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    header span {
+      font-size: 1.5rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+
+    /* Form Card */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-bottom: 28px;
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e40af;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      color: #1a202c;
+    }
+
+    .field input:focus {
+      border-color: #1e40af;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+
+    .btn:active { transform: scale(0.97); }
+    .btn:hover { opacity: 0.88; }
+
+    .btn-primary {
+      background: #1e40af;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .btn-warning {
+      background: #d97706;
+      color: white;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+    }
+
+    .btn-danger {
+      background: #dc2626;
+      color: white;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+    }
+
+    .btn-cancel {
+      background: #e2e8f0;
+      color: #4a5568;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: white;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    #toast.success { background: #16a34a; }
+    #toast.error   { background: #dc2626; }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .stats h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e40af;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge {
+      background: #dbeafe;
+      color: #1e40af;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      background: #f8fafc;
+      padding: 11px 14px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.15s;
+    }
+
+    tbody tr:hover { background: #f8fafc; }
+
+    tbody td {
+      padding: 12px 14px;
+      color: #1a202c;
+      vertical-align: middle;
+    }
+
+    .td-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .date-text {
+      color: #94a3b8;
+      font-size: 0.82rem;
+    }
+
+    .course-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 5px;
+      padding: 2px 10px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    /* Empty state */
+    .empty {
+      text-align: center;
+      padding: 48px 20px;
+      color: #94a3b8;
+    }
+
+    .empty p { font-size: 0.95rem; margin-top: 8px; }
+
+    /* Edit mode highlight */
+    .edit-mode .card {
+      border: 2px solid #d97706;
+    }
+
+    .edit-mode .card h2 {
+      color: #d97706;
+    }
+
+    @media (max-width: 680px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span>🎓</span>
+  <h1>Student Records Manager</h1>
+</header>
+
+<div id="toast"></div>
+
+<div class="container">
+
+  <!-- Form -->
+  <div class="card" id="formCard">
+    <h2 id="formTitle">Add New Student</h2>
+    <div class="form-row">
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="e.g. Rahul Sharma" />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="e.g. rahul@example.com" />
+      </div>
+      <div class="field">
+        <label>Course</label>
+        <input type="text" id="course" placeholder="e.g. Full Stack Dev" />
+      </div>
+      <div>
+        <button class="btn btn-primary" onclick="submitForm()">Save</button>
+        <button class="btn btn-cancel" id="cancelBtn" onclick="cancelEdit()" style="display:none; margin-top:6px;">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="card">
+    <div class="stats">
+      <h2>All Students</h2>
+      <span class="badge" id="count">0 students</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Added On</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="studentTable">
+          <tr>
+            <td colspan="6">
+              <div class="empty">
+                <div style="font-size:2rem">📋</div>
+                <p>Loading students...</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const API = "http://localhost:5000/students";
+  let editingId = null;
+
+  // ── Fetch & render all students ──────────────────────────────────────────
+  async function loadStudents() {
+    try {
+      const res = await fetch(API);
+      const students = await res.json();
+      renderTable(students);
+    } catch (err) {
+      renderEmpty("Could not connect to server. Make sure the backend is running.");
+    }
+  }
+
+  function renderTable(students) {
+    const tbody = document.getElementById("studentTable");
+    const count = document.getElementById("count");
+
+    count.textContent = students.length + " student" + (students.length !== 1 ? "s" : "");
+
+    if (students.length === 0) {
+      renderEmpty("No students yet. Add one above!");
+      return;
+    }
+
+    tbody.innerHTML = students.map((s, i) => `
+      <tr>
+        <td style="color:#94a3b8; font-size:0.82rem">${i + 1}</td>
+        <td><strong>${escHtml(s.name)}</strong></td>
+        <td>${escHtml(s.email)}</td>
+        <td><span class="course-pill">${escHtml(s.course)}</span></td>
+        <td class="date-text">${formatDate(s.createdAt)}</td>
+        <td>
+          <div class="td-actions">
+            <button class="btn btn-warning" onclick="startEdit('${s._id}', '${escJs(s.name)}', '${escJs(s.email)}', '${escJs(s.course)}')">Edit</button>
+            <button class="btn btn-danger" onclick="deleteStudent('${s._id}')">Delete</button>
+          </div>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  function renderEmpty(msg) {
+    document.getElementById("studentTable").innerHTML = `
+      <tr><td colspan="6">
+        <div class="empty">
+          <div style="font-size:2rem">📋</div>
+          <p>${msg}</p>
+        </div>
+      </td></tr>`;
+  }
+
+  // ── Create or Update ─────────────────────────────────────────────────────
+  async function submitForm() {
+    const name   = document.getElementById("name").value.trim();
+    const email  = document.getElementById("email").value.trim();
+    const course = document.getElementById("course").value.trim();
+
+    if (!name || !email || !course) {
+      showToast("All fields are required.", "error");
+      return;
+    }
+
+    const body = JSON.stringify({ name, email, course });
+
+    try {
+      let res;
+
+      if (editingId) {
+        res = await fetch(`${API}/${editingId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body,
+        });
+      } else {
+        res = await fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body,
+        });
+      }
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        showToast(data.message || "Something went wrong.", "error");
+        return;
+      }
+
+      showToast(editingId ? "Student updated!" : "Student added!", "success");
+      cancelEdit();
+      loadStudents();
+
+    } catch (err) {
+      showToast("Server not reachable.", "error");
+    }
+  }
+
+  // ── Edit ─────────────────────────────────────────────────────────────────
+  function startEdit(id, name, email, course) {
+    editingId = id;
+    document.getElementById("name").value   = name;
+    document.getElementById("email").value  = email;
+    document.getElementById("course").value = course;
+    document.getElementById("formTitle").textContent = "Edit Student";
+    document.getElementById("cancelBtn").style.display = "inline-block";
+    document.getElementById("formCard").parentElement.classList.add("edit-mode");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function cancelEdit() {
+    editingId = null;
+    document.getElementById("name").value   = "";
+    document.getElementById("email").value  = "";
+    document.getElementById("course").value = "";
+    document.getElementById("formTitle").textContent = "Add New Student";
+    document.getElementById("cancelBtn").style.display = "none";
+    document.getElementById("formCard").parentElement.classList.remove("edit-mode");
+  }
+
+  // ── Delete ───────────────────────────────────────────────────────────────
+  async function deleteStudent(id) {
+    if (!confirm("Delete this student record?")) return;
+
+    try {
+      const res = await fetch(`${API}/${id}`, { method: "DELETE" });
+      const data = await res.json();
+
+      if (!res.ok) {
+        showToast(data.message || "Delete failed.", "error");
+        return;
+      }
+
+      showToast("Student deleted.", "success");
+      loadStudents();
+    } catch (err) {
+      showToast("Server not reachable.", "error");
+    }
+  }
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  function showToast(msg, type) {
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.className = type;
+    toast.style.display = "block";
+    setTimeout(() => { toast.style.display = "none"; }, 3000);
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return "—";
+    return new Date(dateStr).toLocaleDateString("en-IN", {
+      day: "2-digit", month: "short", year: "numeric"
+    });
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function escJs(str) {
+    return String(str).replace(/'/g, "\\'").replace(/"/g, '\\"');
+  }
+
+  // ── Enter key to submit ──────────────────────────────────────────────────
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submitForm();
+  });
+
+  // ── Init ─────────────────────────────────────────────────────────────────
+  loadStudents();
+</script>
+
+</body>
+</html>

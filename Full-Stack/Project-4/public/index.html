@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Course Enrollment System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">🎓 Student Enrollment System</div>
+      <span class="subtitle">Industrial Training Project — Full Stack</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Dashboard Stats -->
+    <section class="dashboard">
+      <div class="stat-card">
+        <span class="stat-number" id="totalCount">0</span>
+        <span class="stat-label">Total Students</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="courseCount">0</span>
+        <span class="stat-label">Courses Enrolled</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="todayCount">0</span>
+        <span class="stat-label">Added Today</span>
+      </div>
+    </section>
+
+    <!-- Alert Messages -->
+    <div id="alert" class="alert hidden"></div>
+
+    <!-- Student Form -->
+    <section class="card" id="formSection">
+      <div class="card-header">
+        <h2 id="formHeading">Add New Student</h2>
+        <button class="btn btn-outline" id="cancelBtn" onclick="cancelEdit()" style="display:none;">✕ Cancel</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input type="text" id="name" placeholder="e.g. Rahul Sharma" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="e.g. rahul@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="course">Course <span class="req">*</span></label>
+          <input type="text" id="course" placeholder="e.g. Full Stack Development" />
+        </div>
+        <div class="form-group form-submit">
+          <button class="btn btn-primary" id="submitBtn" onclick="submitForm()">
+            ＋ Add Student
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student List -->
+    <section class="card">
+      <div class="card-header">
+        <h2>All Students</h2>
+        <span class="badge" id="listCount">Loading...</span>
+      </div>
+
+      <div id="loadingState" class="state-msg">⏳ Loading students...</div>
+      <div id="emptyState" class="state-msg hidden">📭 No students found. Add one above!</div>
+      <div id="errorState" class="state-msg error hidden">❌ Failed to load students. Is the server running?</div>
+
+      <div class="table-wrap" id="tableWrap" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Enrolled On</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Student Course Enrollment System &mdash; Project 4 &mdash; Industrial Training</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
